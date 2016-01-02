@@ -1,6 +1,8 @@
 ﻿namespace Ausgaben.Controllers
 {
     using System.Linq;
+    using System.Security.Claims;
+    using System.Security.Principal;
     using System.Threading.Tasks;
     using System.Web.Http;
     using System.Web.Http.Controllers;
@@ -19,7 +21,7 @@
         {
             return this.DeleteAsync(id);
         }
-
+        
         [HttpGet]
         public virtual IQueryable<TData> All()
         {

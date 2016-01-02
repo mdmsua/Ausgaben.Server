@@ -1,6 +1,5 @@
 ﻿namespace Ausgaben
 {
-    using System;
     using System.Configuration;
     using System.Web.Http;
 
@@ -46,19 +45,18 @@
 
             app.UseWebApi(config);
 
-            AutoMapper.Mapper.Initialize(configuration =>
-            {
-                configuration.CreateMap<Account, AccountEntity>()
-                    .ForMember(accountEntity => accountEntity.Id, map => map.MapFrom(
-                                customer => customer.Id.ToString()));
-                // Define a map from the client type to the database
-                // type. Used when inserting and updating data.
-                // The string-valued Id property is converted to a long integer,
-                // then assigned to the long-valued CustomerId property.
-                configuration.CreateMap<AccountEntity, Account>()
-                    .ForMember(account => account.Id, map => map.MapFrom(
-                                accountEntity => Mappers.ToGuid(accountEntity.Id)));
-            });
+            AutoMapper.Mapper.Initialize(
+                configuration =>
+                    {
+                        configuration.CreateMap<Account, AccountEntity>()
+                            .ForMember(
+                                accountEntity => accountEntity.Id, 
+                                map => map.MapFrom(customer => customer.Id.ToString()));
+                        configuration.CreateMap<AccountEntity, Account>()
+                            .ForMember(
+                                account => account.Id, 
+                                map => map.MapFrom(accountEntity => Mappers.ToGuid(accountEntity.Id)));
+                    });
         }
     }
 }
