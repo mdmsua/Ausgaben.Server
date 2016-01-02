@@ -3,10 +3,16 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using Microsoft.Azure.Mobile.Server;
 using Microsoft.Azure.Mobile.Server.Tables;
-using Ausgaben.DataObjects;
 
 namespace Ausgaben.Models
 {
+    using System;
+    using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.ModelConfiguration;
+    using System.Net.Http;
+
+    using Ausgaben.Data;
+
     public class MobileServiceContext : DbContext
     {
         // You can add custom code to this file. Changes will not be overwritten.
@@ -24,15 +30,23 @@ namespace Ausgaben.Models
 
         public MobileServiceContext() : base(connectionStringName)
         {
+            
         }
 
-        public DbSet<TodoItem> TodoItems { get; set; }
-
+        public DbSet<Account> Accounts { get; set; }
+        
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Conventions.Add(
-                new AttributeToColumnAnnotationConvention<TableColumnAttribute, string>(
-                    "ServiceTableColumn", (property, attributes) => attributes.Single().ColumnType.ToString()));
+            //modelBuilder.Conventions.Add(
+            //    new AttributeToColumnAnnotationConvention<TableColumnAttribute, string>(
+            //        "ServiceTableColumn", (property, attributes) => attributes.Single().ColumnType.ToString()));
+            //modelBuilder.Entity<Account>().ToTable("Accounts");
+            //modelBuilder.Types<TableData>().Configure(x => x.Property(y => y.Id).HasColumnType("uniqueidentifier"));
+            //modelBuilder.Types<TableData>().Configure(x => x.Property(y => y.Id).HasColumnType("bigint"));
+            //modelBuilder.Types<TableData>().Configure(y => y.Property(a => a.Id).HasColumnType("varchar"));
         }
+
+        
     }
+    
 }
