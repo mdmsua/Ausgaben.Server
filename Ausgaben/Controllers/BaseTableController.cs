@@ -1,8 +1,6 @@
 ﻿namespace Ausgaben.Controllers
 {
     using System.Linq;
-    using System.Security.Claims;
-    using System.Security.Principal;
     using System.Threading.Tasks;
     using System.Web.Http;
     using System.Web.Http.Controllers;
@@ -17,15 +15,15 @@
     public abstract class BaseTableController<TData, TModel> : TableController<TData>
         where TData : class, ITableData where TModel : class, ITableEntity
     {
-        public virtual Task Delete(string id)
-        {
-            return this.DeleteAsync(id);
-        }
-        
         [HttpGet]
         public virtual IQueryable<TData> All()
         {
             return this.Query();
+        }
+
+        public virtual Task Delete(string id)
+        {
+            return this.DeleteAsync(id);
         }
 
         public virtual SingleResult<TData> Get(string id)
@@ -47,7 +45,7 @@
         protected override void Initialize(HttpControllerContext controllerContext)
         {
             base.Initialize(controllerContext);
-            var context = new MobileServiceContext();
+            var context = new MobileServiceContext(this.Configuration);
             this.DomainManager = new GuidMappedEntityDomainManager<TData, TModel>(context, this.Request);
         }
     }

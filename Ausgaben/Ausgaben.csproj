@@ -122,6 +122,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.IdentityModel" />
     <Reference Include="System.IdentityModel.Tokens.Jwt, Version=4.0.20622.1351, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.4.0.2.206221351\lib\net45\System.IdentityModel.Tokens.Jwt.dll</HintPath>
       <Private>True</Private>
@@ -187,6 +188,7 @@
     <Compile Include="Data\IAccount.cs" />
     <Compile Include="Data\ITableEntity.cs" />
     <Compile Include="Data\Mappers.cs" />
+    <Compile Include="Models\SessionContextCommandInterceptor.cs" />
     <Compile Include="Data\TableEntity.cs" />
     <Compile Include="Models\MobileServiceContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -209,6 +211,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\ausgaben - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\Local.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
