@@ -4,6 +4,7 @@
     using System.Web.Http;
 
     using Ausgaben.Data;
+    using Ausgaben.Filters;
 
     using Microsoft.Azure.Mobile.Server;
     using Microsoft.Azure.Mobile.Server.Authentication;
@@ -42,6 +43,11 @@
                             TokenHandler = config.GetAppServiceTokenHandler()
                         });
             }
+
+#if !DEBUG
+            config.Filters.Add(new HttpsAttribute());
+            config.Filters.Add(new AuthorizeAttribute());
+#endif
 
             app.UseWebApi(config);
 
