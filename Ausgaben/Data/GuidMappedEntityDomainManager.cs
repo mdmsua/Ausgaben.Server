@@ -1,7 +1,6 @@
 ﻿namespace Ausgaben.Data
 {
     using System.Data.Entity;
-    using System.Linq;
     using System.Net.Http;
     using System.Threading.Tasks;
     using System.Web.Http;

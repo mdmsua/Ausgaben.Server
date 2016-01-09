@@ -114,7 +114,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.8.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
@@ -182,8 +182,10 @@
     <Compile Include="App_Start\Startup.MobileApp.cs" />
     <Compile Include="Controllers\BaseTableController.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Data\Account.cs" />
     <Compile Include="Data\AccountEntity.cs" />
+    <Compile Include="Data\Category.cs" />
     <Compile Include="Data\GuidMappedEntityDomainManager.cs" />
     <Compile Include="Data\IAccount.cs" />
     <Compile Include="Data\ITableEntity.cs" />
@@ -196,7 +198,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
