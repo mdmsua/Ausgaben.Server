@@ -44,7 +44,7 @@
             }
 
 #if !DEBUG
-            config.Filters.Add(new HttpsAttribute());
+            config.Filters.Add(new Filters.HttpsAttribute());
             config.Filters.Add(new AuthorizeAttribute());
 #endif
 
