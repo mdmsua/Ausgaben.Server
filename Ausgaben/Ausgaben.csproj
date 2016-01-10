@@ -180,6 +180,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\Startup.MobileApp.cs" />
+    <Compile Include="Controllers\PaymentsController.cs" />
     <Compile Include="Controllers\BaseTableController.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
@@ -188,8 +189,11 @@
     <Compile Include="Data\Category.cs" />
     <Compile Include="Data\GuidMappedEntityDomainManager.cs" />
     <Compile Include="Data\IAccount.cs" />
+    <Compile Include="Data\IPayment.cs" />
     <Compile Include="Data\ITableEntity.cs" />
     <Compile Include="Data\Mappers.cs" />
+    <Compile Include="Data\Payment.cs" />
+    <Compile Include="Data\PaymentEntity.cs" />
     <Compile Include="Filters\HttpsAttribute.cs" />
     <Compile Include="Models\SessionContextCommandInterceptor.cs" />
     <Compile Include="Data\TableEntity.cs" />

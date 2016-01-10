@@ -21,7 +21,7 @@
             : base(context, request, enableSoftDelete)
         {
         }
-        
+
         public override Task<bool> DeleteAsync(string id)
         {
             var guid = Mappers.ToGuid(id);

@@ -46,7 +46,7 @@
         {
             base.Initialize(controllerContext);
             var context = new MobileServiceContext(this.Configuration);
-            this.DomainManager = new GuidMappedEntityDomainManager<TData, TModel>(context, this.Request);
+            this.DomainManager = new GuidMappedEntityDomainManager<TData, TModel>(context, this.Request, true);
         }
     }
 }

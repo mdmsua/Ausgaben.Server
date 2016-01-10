@@ -4,7 +4,6 @@
     using System.Web.Http;
 
     using Ausgaben.Data;
-    using Ausgaben.Filters;
 
     using Microsoft.Azure.Mobile.Server;
     using Microsoft.Azure.Mobile.Server.Authentication;
@@ -57,11 +56,19 @@
                         configuration.CreateMap<Account, AccountEntity>()
                             .ForMember(
                                 accountEntity => accountEntity.Id, 
-                                map => map.MapFrom(customer => customer.Id.ToString()));
+                                map => map.MapFrom(account => account.Id.ToString()));
                         configuration.CreateMap<AccountEntity, Account>()
                             .ForMember(
                                 account => account.Id, 
                                 map => map.MapFrom(accountEntity => Mappers.ToGuid(accountEntity.Id)));
+                        configuration.CreateMap<Payment, PaymentEntity>()
+                            .ForMember(
+                                paymentEntity => paymentEntity.Id, 
+                                map => map.MapFrom(payment => payment.Id.ToString()));
+                        configuration.CreateMap<PaymentEntity, Payment>()
+                            .ForMember(
+                                payment => payment.Id, 
+                                map => map.MapFrom(paymentEntity => Mappers.ToGuid(paymentEntity.Id)));
                     });
         }
     }
