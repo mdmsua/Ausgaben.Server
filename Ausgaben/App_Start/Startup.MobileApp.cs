@@ -9,6 +9,8 @@
     using Microsoft.Azure.Mobile.Server.Authentication;
     using Microsoft.Azure.Mobile.Server.Config;
 
+    using Mindscape.Raygun4Net.WebApi;
+
     using Owin;
 
     public partial class Startup
@@ -70,6 +72,8 @@
                                 payment => payment.Id, 
                                 map => map.MapFrom(paymentEntity => Mappers.ToGuid(paymentEntity.Id)));
                     });
+
+            RaygunWebApiClient.Attach(config);
         }
     }
 }

@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Data.Entity;
+    using System.Linq;
     using System.Threading.Tasks;
     using System.Web.Http;
 
@@ -11,6 +12,7 @@
     using Microsoft.Azure.Mobile.Server.Config;
 
     [MobileAppController]
+    [AllowAnonymous]
     public class CategoriesController : ApiController
     {
         // GET api/Category
@@ -22,7 +24,7 @@
                 categories = await context.Categories.ToListAsync().ConfigureAwait(false);
             }
 
-            return categories;
+            return categories.Where(c => c.Parent == null).ToList();
         }
     }
 }

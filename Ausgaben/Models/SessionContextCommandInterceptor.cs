@@ -46,6 +46,7 @@
             var user = this.tokenHandler.CreateUserId(provider.Value, id.Value);
             using (var cmd = command.Connection.CreateCommand())
             {
+                cmd.Transaction = command.Transaction;
                 cmd.CommandText = $"exec sp_set_session_context 'User', '{user}'";
                 cmd.ExecuteNonQuery();
             }

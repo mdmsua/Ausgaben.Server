@@ -13,5 +13,7 @@
         string Description { get; set; }
 
         DateTimeOffset? Timestamp { get; set; }
+
+        Category Category { get; set; }
     }
 }
